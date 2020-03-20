@@ -9,6 +9,8 @@
 
 Partida *par=new Partida();
 
+//Tablero de ajedrez
+char tablero[8][8]={' '};
 using namespace std;
 
 int main(){
@@ -102,9 +104,9 @@ int main(){
 				par->print();
 			break;}
 
-			case 3:
+			case 3:{
 				exit(1);
-			break;
+			break;}
 
 			default:
 				cout<<"Opcion no valida"<<endl<<endl;

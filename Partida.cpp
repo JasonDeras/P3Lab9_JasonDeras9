@@ -72,47 +72,64 @@ class Partida{
       Escribir.close();
 
     }
-string token(string cadena, string divisor,int pos){
-               if(cadena.size()>0){
-                 char oracion[cadena.size()]; 
-                 for (int i=0;i<=cadena.size();i++)
-                 {oracion[i]=cadena[i];}                    
-                 char *ptrtoken; 
-                 int num=1;
-                 const char* d=divisor.c_str();
-                 ptrtoken = strtok(oracion , d);             
-                 while(ptrtoken){
-                     if(num==pos){ 
-                        return ptrtoken;}                 
-                     ptrtoken = strtok(NULL, d);
-                     num++;}
-                 return "";
-               }else{return "";}
-            }
 
-            void leer(){
-              fstream Leer;
-              string linea;
-              movimientos.clear();                 
-              Leer.open("./bitacoraPartidas.txt"); 
-              if (Leer.is_open()){                 
-                    while(! Leer.eof()){
-                             getline(Leer,linea); 
-                             if(linea.size()>0){//Atoi es de string a id o de cualquier otro numero  
-                                token(linea,";", 1);
-                                token(linea,";", 2);
+    string token(string cadena, string divisor,int pos){
+               
+      if(cadena.size()>0){
+                 
+        char oracion[cadena.size()]; 
+                 
+        for (int i=0;i<=cadena.size();i++){
+          oracion[i]=cadena[i];
+        } 
+
+        char *ptrtoken; 
+        int num=1;
+        const char* d=divisor.c_str();
+        ptrtoken = strtok(oracion , d);             
+                 
+        while(ptrtoken){
+                     
+          if(num==pos){ 
+            return ptrtoken;
+          }                 
+          
+          ptrtoken = strtok(NULL, d);
+          num++;
+        }
+        return "";
+        }else{
+          return "";
+        }
+      }
+
+    void leer(){
+              
+        fstream Leer;
+        string linea;
+        movimientos.clear();                 
+        Leer.open("./bitacoraPartidas.txt"); 
+      
+        if (Leer.is_open()){                 
+          while(! Leer.eof()){
+            getline(Leer,linea);             
+            if(linea.size()>0){//Atoi es de string a id o de cualquier otro numero  
+              token(linea,";", 1);
+              token(linea,";", 2);
                                                     
-                        }
-                    }
-                }     
-                Leer.close();
             }
+          }
+        }     
+        Leer.close();
+    }
+
     void print(){
 
       cout<<"La partida"<<endl 
-      << "Nombre:"<<nombre
+      << "Nombre:"<<nombre<<endl
       <<" Pieza: "<<pieza<<endl;
       cout<<"Movimientos"<<endl;
+
       for(int i=0;i<movimientos.size();i++){
         cout<<movimientos.at(i);
       }
