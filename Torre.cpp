@@ -16,6 +16,10 @@ class Torre:public Pieza{
 		Torre():Pieza("Torre"){
 		}//Fin del constructor simple
 
+		bool Validar_Movimiento(int x, int y, int x1, int y2){
+			return false;
+		}
+
 		~Torre(){
 			
 		}//Destructor
