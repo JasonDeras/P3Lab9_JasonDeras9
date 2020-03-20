@@ -16,10 +16,10 @@ class Alfil:public Pieza{
 		Alfil():Pieza("Alfil"){
 		}//Fin del constructor simple
 
-		bool Validar_Movimiento(int x, int y, int x1, int y2){
+		virtual bool Validar_Movimiento(int x, int y){
 			return false;
 		}
-		
+
 		~Alfil(){
 			
 		}//Destructor

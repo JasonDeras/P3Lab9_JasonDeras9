@@ -16,7 +16,7 @@ class Peon:public Pieza{
 		Peon():Pieza("Peon"){
 		}//Fin del constructor simple
 		
-		bool Validar_Movimiento(int x, int y, int x1, int y2){
+		bool Validar_Movimiento(int x, int y){
 			return false;
 		}
 

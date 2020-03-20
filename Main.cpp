@@ -6,6 +6,10 @@
 #include "Reina.cpp"
 #include "Alfil.cpp"
 #include "Partida.cpp"
+#include "admPartida.cpp"
+
+Partida *par=new Partida();
+admPartida adm("./bitacoraPartidas.txt");
 
 using namespace std;
 
@@ -45,14 +49,46 @@ int main(){
 
 				switch(opcion){
 
-					case 1:
+					case 1:{
+						Pieza *p=new Torre();
+					break;}
+
+					case 2:
+				
+					break;
+
+					case 3:
+						
+					break;
+
+					case 4:
+						
+					break;
+
+					case 5:
+						
 					break;
 
 					default:
 						cout<<"Opcion no valida"<<endl<<endl;
 					break;
-					
+
 				}//fin de las opciones de las piezas
+
+				string cordenada;
+
+				while(true){
+					
+					cout<<"Ingrese una cordenada: ";
+					cin>>cordenada;
+
+					while(cordenada.size()>7 || cordenada.size()<7){
+						cout<<"Error esas cordenadas no existen"<<endl;
+						cout<<"Ingrese la cordenada: ";
+						cin>>cordenada;
+					}
+
+				}//fin del while de las jugadas
 
 			break;}
 
@@ -75,6 +111,7 @@ int main(){
 
 	}//Fin del while del usuario
 
+	delete par;
 	return 0;
 
 }//Fin del main
