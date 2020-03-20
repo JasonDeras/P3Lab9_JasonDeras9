@@ -24,9 +24,13 @@ class Pieza{
 
 		string getNombre(){
 			return this->nombre;
-		}
+		}//fin del get nombre
 
-		virtual bool validar_Movimiento(string, string)=0;
+		string toString(){
+			return nombre;
+		}//fin del to string 
+
+		virtual bool Validar_Movimiento(int x, int y, Pieza[][] tablero)=0;
 };
 
 #endif

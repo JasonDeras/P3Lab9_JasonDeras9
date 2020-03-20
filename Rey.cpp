@@ -2,21 +2,21 @@
 #include<string>
 #include "Pieza.cpp"
 
-#ifndef PEON_CPP
-#define PEON_CPP
+#ifndef REY_CPP
+#define REY_CPP
 
 using namespace std;
 
-class Peon:public Pieza{
+class Rey:public Pieza{
 		
 	protected:
 		
 	public:
 		
-		Peon():Pieza("Peon"){
+		Rey():Pieza("Rey"){
 		}//Fin del constructor simple
 
-		~Peon(){
+		~Rey(){
 			
 		}//Destructor
 };

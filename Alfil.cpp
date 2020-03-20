@@ -2,21 +2,21 @@
 #include<string>
 #include "Pieza.cpp"
 
-#ifndef PEON_CPP
-#define PEON_CPP
+#ifndef ALFIL_CPP
+#define ALFIL_CPPAlfil
 
 using namespace std;
 
-class Peon:public Pieza{
+class Alfil:public Pieza{
 		
 	protected:
 		
 	public:
 		
-		Peon():Pieza("Peon"){
+		Alfil():Pieza("Alfil"){
 		}//Fin del constructor simple
 
-		~Peon(){
+		~Alfil(){
 			
 		}//Destructor
 };

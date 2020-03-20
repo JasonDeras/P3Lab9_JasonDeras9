@@ -2,21 +2,21 @@
 #include<string>
 #include "Pieza.cpp"
 
-#ifndef PEON_CPP
-#define PEON_CPP
+#ifndef CABALLO_CPP
+#define CABALLO_CPP
 
 using namespace std;
 
-class Peon:public Pieza{
+class Caballo:public Pieza{
 		
 	protected:
 		
 	public:
 		
-		Peon():Pieza("Peon"){
+		Caballo():Pieza("Caballo"){
 		}//Fin del constructor simple
 
-		~Peon(){
+		~Caballo(){
 			
 		}//Destructor
 };
