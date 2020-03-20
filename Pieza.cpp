@@ -30,7 +30,7 @@ class Pieza{
 			return nombre;
 		}//fin del to string 
 
-		virtual bool Validar_Movimiento(int x1, int y1, int x2, int y2)=0;
+		virtual bool Validar_Movimiento(int x, int y)=0;
 };
 
 #endif
