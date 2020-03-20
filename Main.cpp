@@ -49,33 +49,38 @@ int main(){
 
 					case 1:{
 						Pieza *p=new Torre();
+						par->setPieza(p->getNombre());
 					break;}
 
-					case 2:
-				
-					break;
+					case 2:{
+						Pieza *p=new Peon();
+						par->setPieza(p->getNombre());
+					break;}
 
-					case 3:
-						
-					break;
+					case 3:{
+						Pieza *p=new Caballo();
+						par->setPieza(p->getNombre());
+					break;}
 
-					case 4:
-						
-					break;
+					case 4:{
+						Pieza *p=new Reina();
+						par->setPieza(p->getNombre());
+					break;}
 
-					case 5:
-						
-					break;
+					case 5:{
+						Pieza *p=new Alfil();
+						par->setPieza(p->getNombre());
+					break;}
 
-					default:
+					default:{
 						cout<<"Opcion no valida"<<endl<<endl;
-					break;
+					break;}
 
 				}//fin de las opciones de las piezas
 
 				string cordenada;
-
-				while(true){
+				int cont=0;
+				while(cont<3){
 					
 					cout<<"Ingrese una cordenada: ";
 					cin>>cordenada;
@@ -85,13 +90,17 @@ int main(){
 						cout<<"Ingrese la cordenada: ";
 						cin>>cordenada;
 					}
-
+					par->setMovimiento(cordenada);
+					par->setNombre(nombre);
+					cont++;
 				}//fin del while de las jugadas
-
+				par->GuardarPartida();
 			break;}
 
-			case 2:
-			break;
+			case 2:{
+				par->leer();
+				par->print();
+			break;}
 
 			case 3:
 				exit(1);

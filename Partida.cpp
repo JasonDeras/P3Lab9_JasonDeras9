@@ -1,8 +1,10 @@
 #include<iostream> 
 #include<string> 
-#include "Pieza.cpp"
-#include<vector>
-#include<bits/stdc++.h>
+#include <fstream>
+#include <stdlib.h>
+#include <vector>
+#include <bits/stdc++.h>
+
 
 #ifndef PARTIDA_CPP
 #define PARTIDA_CPP
@@ -14,7 +16,7 @@ class Partida{
     
     string nombre;
     vector<string>movimientos;                        
-    Pieza * pieza;
+    string pieza;
 
   public:
 
@@ -46,11 +48,11 @@ class Partida{
       return this->movimientos;
     }
     
-    Pieza * getPieza(){
+    string getPieza(){
       return pieza;
     }
 
-    void setPieza(Pieza *pieza){
+    void setPieza(string pieza){
       this->pieza=pieza;
     }
 
@@ -66,15 +68,50 @@ class Partida{
             Escribir<<";";
           }
       }
+      Escribir<<endl;
       Escribir.close();
 
     }
+string token(string cadena, string divisor,int pos){
+               if(cadena.size()>0){
+                 char oracion[cadena.size()]; 
+                 for (int i=0;i<=cadena.size();i++)
+                 {oracion[i]=cadena[i];}                    
+                 char *ptrtoken; 
+                 int num=1;
+                 const char* d=divisor.c_str();
+                 ptrtoken = strtok(oracion , d);             
+                 while(ptrtoken){
+                     if(num==pos){ 
+                        return ptrtoken;}                 
+                     ptrtoken = strtok(NULL, d);
+                     num++;}
+                 return "";
+               }else{return "";}
+            }
 
+            void leer(){
+              fstream Leer;
+              string linea;
+              movimientos.clear();                 
+              Leer.open("./bitacoraPartidas.txt"); 
+              if (Leer.is_open()){                 
+                    while(! Leer.eof()){
+                             getline(Leer,linea); 
+                             if(linea.size()>0){//Atoi es de string a id o de cualquier otro numero  
+                                token(linea,";", 1);
+                                token(linea,";", 2);
+                                                    
+                        }
+                    }
+                }     
+                Leer.close();
+            }
     void print(){
 
       cout<<"La partida"<<endl 
       << "Nombre:"<<nombre
-      <<" Pieza: "<<pieza->getNombre()<<endl;
+      <<" Pieza: "<<pieza<<endl;
       cout<<"Movimientos"<<endl;
       for(int i=0;i<movimientos.size();i++){
         cout<<movimientos.at(i);
