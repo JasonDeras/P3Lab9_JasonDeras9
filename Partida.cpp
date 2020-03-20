@@ -58,7 +58,15 @@ class Partida{
 
       ofstream Escribir;
       Escribir.open("./bitacoraPartidas.txt",std::ios::app);
-      
+      Escribir<<nombre<<";"
+      <<pieza<<";";
+      for (int i = 0; i < movimientos.size(); ++i){
+          Escribir<<movimientos[i];
+          if(i<movimientos.size()-1){
+            Escribir<<";";
+          }
+      }
+      Escribir.close();
 
     }
 

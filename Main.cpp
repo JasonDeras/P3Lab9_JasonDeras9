@@ -6,10 +6,8 @@
 #include "Reina.cpp"
 #include "Alfil.cpp"
 #include "Partida.cpp"
-#include "admPartida.cpp"
 
 Partida *par=new Partida();
-admPartida adm("./bitacoraPartidas.txt");
 
 using namespace std;
 
