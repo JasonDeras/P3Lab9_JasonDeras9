@@ -11,8 +11,7 @@
 //Variale de las partidas
 Partida *par=new Partida();
 
-//Vector de las partidas
-vector<Partida*>partidas;
+vector<string>moves;
 
 //Tablero de ajedrez
 char tablero[8][8]={' '};
@@ -86,27 +85,44 @@ int main(){
 				}//fin de las opciones de las piezas
 
 				string cordenada;
-				int cont=0;
-				while(cont<3){
+				string cordenada2;
+				string juego;
+				int resp=1;
+				while(true){
 					
-					cout<<"Ingrese una cordenada: ";
+					cout<<"Ingrese la cordenada del rey: ";
 					cin>>cordenada;
 
-					while(cordenada.size()>7 || cordenada.size()<7){
-						cout<<"Error esas cordenadas no existen"<<endl;
-						cout<<"Ingrese la cordenada: ";
-						cin>>cordenada;
+					for (int i = 0; i < cordenada.size(); i++){
+						if(numero[i]!='1' && numero[i] !='2' 
+							&& numero[i]!='3' && numero[i]!='4' 
+							&& numero[i] !='5'&& numero[i]!='6' 
+							&& numero[i]!='7' && numero[i] !='8' 
+							&& numero[i]!='a' && numero[i] !='b' 
+							&& numero[i]!='c' && numero[i]!='d' 
+							&& numero[i] !='e' && numero[i]!='h'){
+						resp=2;
+					}//Fin del if
+
+					if(resp==1){
+						moves.push_back(cordenada);
+					}else{
+						cout<<"La cordenada no es valida"<<endl<<endl;
 					}
+
+					cout<<"Ingrese la cordenada de la otra pieza: ";
+					cin>>cordenada2;
+
 					par->setMovimiento(cordenada);
 					par->setNombre(nombre);
-					cont++;
+
 				}//fin del while de las jugadas
 				par->GuardarPartida();
 			break;}
 
 			case 2:{
 				par->leer();
-				par->print();
+
 			break;}
 
 			case 3:{
