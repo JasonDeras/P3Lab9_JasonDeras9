@@ -63,12 +63,9 @@ class Partida{
       Escribir<<nombre<<";"
       <<pieza<<";";
       for (int i = 0; i < movimientos.size(); ++i){
-          Escribir<<movimientos[i];
-          if(i<movimientos.size()-1){
-            Escribir<<";";
-          }
+          Escribir<<movimientos[i]<<"/";
       }
-      Escribir<<endl;
+      Escribir<<";"<<endl;
       Escribir.close();
 
     }
@@ -104,29 +101,29 @@ class Partida{
       }
 
     void leer(){
-              
-        fstream Leer;
-        string linea;
-        movimientos.clear();                 
-        Leer.open("./bitacoraPartidas.txt"); 
+      string aux="";
+      fstream Leer;
+      string linea;
+      movimientos.clear();                 
+      Leer.open("./bitacoraPartidas.txt"); 
       
-        if (Leer.is_open()){                 
-          while(! Leer.eof()){
-            getline(Leer,linea);             
-            if(linea.size()>0){//Atoi es de string a id o de cualquier otro numero  
-              token(linea,";", 1);
-              token(linea,";", 2);
-                                                    
-            }
+      if (Leer.is_open()){                 
+        
+        while(! Leer.eof()){
+          getline(Leer,linea);             
+          if(linea.size()>0){//Atoi es de string a id o de cualquier otro numero  
+            nombre=token(linea,";", 1);
+            pieza=token(linea,";", 2);
+            movimientos.push_back(token(linea,";", 3));
           }
-        }     
-        Leer.close();
+        }
+      }     
+      Leer.close();
     }
 
     void print(){
 
-      cout<<"La partida"<<endl 
-      << "Nombre:"<<nombre<<endl
+      cout<< "Nombre: "<<nombre<<endl
       <<" Pieza: "<<pieza<<endl;
       cout<<"Movimientos"<<endl;
 

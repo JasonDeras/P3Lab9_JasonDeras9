@@ -6,8 +6,13 @@
 #include "Reina.cpp"
 #include "Alfil.cpp"
 #include "Partida.cpp"
+#include <vector>
 
+//Variale de las partidas
 Partida *par=new Partida();
+
+//Vector de las partidas
+vector<Partida*>partidas;
 
 //Tablero de ajedrez
 char tablero[8][8]={' '};
