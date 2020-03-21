@@ -14,7 +14,7 @@ Partida *par=new Partida();
 vector<string>moves;
 
 //Tablero de ajedrez
-char tablero[8][8]={' '};
+char tablero[8][8];
 using namespace std;
 
 int main(){
@@ -89,7 +89,9 @@ int main(){
 				string jugar;
 				int cont=0;
 				int resp=1;
-				
+				int corx;
+				int cory;
+
 				cout<<"Ingrese la cordenada del rey en el formato[e1,e2]: ";
 				cin>>cordenada;
 
@@ -107,6 +109,8 @@ int main(){
 
 				if(resp==1){
 					moves.push_back(cordenada);
+					corx=(jugar[2], nullptr, 10);
+					cory=(jugar[5], nullptr, 10);
 				}else{
 					cout<<"La cordenada no es valida"<<endl<<endl;
 				}
@@ -129,13 +133,15 @@ int main(){
 
 				if(resp==1){
 					moves.push_back(cordenada2);
+					corx=(jugar[2], nullptr, 10);
+					cory=(jugar[5], nullptr, 10);
 				}else {
 					cout<<"Las cordenadas no son validas"<<endl<<endl;
 				}
 				while(true){
 					
 					resp=1;
-					cout<<"Ingrese las cordenadas a jugar en el formato[e1,e2]: ";
+					cout<<"Jugador 1 las cordenadas a jugar en el formato[e1,e2]: ";
 					cin>>jugar;
 					for (int i = 0; i < jugar.size(); i++){
 						if(jugar[i]!='1' && jugar[i] !='2' 
@@ -154,7 +160,29 @@ int main(){
 					}else {
 						cout<<"Las cordenadas no son validas"<<endl<<endl;
 					}
+
 					cont++;
+
+					resp=1;
+					cout<<"Jugador 2 las cordenadas a jugar en el formato[e1,e2]: ";
+					cin>>jugar;
+					for (int i = 0; i < jugar.size(); i++){
+						if(jugar[i]!='1' && jugar[i] !='2' 
+							&& jugar[i]!='3' && jugar[i]!='4' 
+							&& jugar[i] !='5'&& jugar[i]!='6' 
+							&& jugar[i]!='7' && jugar[i] !='8' 
+							&& jugar[i]!='a' && jugar[i] !='b' 
+							&& jugar[i]!='c' && jugar[i]!='d' 
+							&& jugar[i] !='e' && jugar[i]!='h'){
+							resp=2;
+						}//Fin del if
+					}//fin del for 
+
+					if(resp==1){
+						moves.push_back(jugar);
+					}else {
+						cout<<"Las cordenadas no son validas"<<endl<<endl;
+					}
 					int sigue;
 					if(cont%2==0){
 						cout<<"Desea Seguir jugando[1.-Si,2.-No]: ";
@@ -176,7 +204,7 @@ int main(){
 
 			case 2:{
 				par->leer();
-
+				par->print();
 			break;}
 
 			case 3:{
