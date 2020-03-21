@@ -17,7 +17,12 @@ class Caballo:public Pieza{
 		}//Fin del constructor simple
 
 		bool Validar_Movimiento(int x, int y){
-			return false;
+			bool valido = false;
+    		if( (x == (*this).getX()+2 && ( y == (*this).getY() + 1 || y == (*this).getY() - 1 ) ) ) valido = true;
+    		if( (x == (*this).getX()-2 && ( y == (*this).getY() + 1 || y == (*this).getY() - 1 ) ) ) valido = true;
+    		if( (y == (*this).getY()+2 && ( x == (*this).getX() + 1 || x == (*this).getX() - 1 ) ) ) valido = true;
+    		if( (y == (*this).getY()-2 && ( x == (*this).getX() + 1 || x == (*this).getX() - 1 ) ) ) valido = true;
+    		return valido;
 		}
 
 		~Caballo(){

@@ -1,4 +1,8 @@
 #include<string>
+#include<iostream>
+
+using namespace std;
+
 #ifndef PIEZA_CPP
 #define PIEZA_CPP
 
@@ -9,7 +13,9 @@ class Pieza{
 	private:
 		
 		string nombre;
-		
+		int x;
+		int y;
+
 	protected:
 		
 	public:
@@ -30,7 +36,25 @@ class Pieza{
 			return nombre;
 		}//fin del to string 
 
-		virtual bool Validar_Movimiento(int x, int y)=0;
+		void setX( int x ){ 
+			this-> x = x; 
+		}
+        
+        void setY( int y ){ 
+        	this-> y = y; 
+        }
+
+        int getX(){ 
+        	return x; 
+        }
+        
+        int getY(){ 
+        	return y; 
+        }
+
+ 		virtual bool validarMovimiento( int x, int y ){
+ 			cout << "Entro al que no debia" << endl;
+ 		}
 };
 
 #endif

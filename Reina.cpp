@@ -17,8 +17,11 @@ class Reina:public Pieza{
 		}//Fin del constructor simple
 
 		virtual bool Validar_Movimiento(int x, int y){
-			return false;
-		}
+			bool valido = false;
+    		if( (*this).getY() == y || (*this).getX() == x ) valido = true;
+    		if( x - y == (*this).getX()-(*this).getY()) valido = true;
+    		return valido;		
+    	}
 
 		~Reina(){
 			

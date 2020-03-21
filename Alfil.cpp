@@ -16,8 +16,13 @@ class Alfil:public Pieza{
 		Alfil():Pieza("Alfil"){
 		}//Fin del constructor simple
 
-		virtual bool Validar_Movimiento(int x, int y){
-			return false;
+		bool Validar_Movimiento(int x, int y){
+			bool valido = false;
+			
+    		if( x - y == (*this).getX()-(*this).getY()){ 
+    			valido = true;
+    		}
+    		return valido;
 		}
 
 		~Alfil(){

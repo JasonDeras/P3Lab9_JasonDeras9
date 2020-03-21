@@ -17,7 +17,9 @@ class Peon:public Pieza{
 		}//Fin del constructor simple
 		
 		bool Validar_Movimiento(int x, int y){
-			return false;
+			bool valido = false;
+    		if( (*this).getX()-1 == x && (*this).getY() == y ) valido = true;
+    		if( (*this).getX()+1 == x && (*this).getY() == y ) valido = true;
 		}
 
 		~Peon(){

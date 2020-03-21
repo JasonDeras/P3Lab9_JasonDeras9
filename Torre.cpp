@@ -17,7 +17,9 @@ class Torre:public Pieza{
 		}//Fin del constructor simple
 
 		bool Validar_Movimiento(int x, int y){
-			return false;
+			bool valido = false;
+    		if( (*this).getY() == y || (*this).getX() == x ) valido = true;
+    		return valido;
 		}
 
 		~Torre(){

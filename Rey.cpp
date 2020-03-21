@@ -17,7 +17,12 @@ class Rey:public Pieza{
 		}//Fin del constructor simple
 
 		virtual bool Validar_Movimiento(int x, int y){
-			return false;
+			bool valido = false;
+    		if( ( x == (*this).getX()-1 && y == (*this).getY() ) || (x == (*this).getX()+1 && y == (*this).getY() ) ) valido = true;
+    		if( ( y == (*this).getY()-1 && x == (*this).getX() ) || (y == (*this).getY()+1 && x == (*this).getX() ) ) valido = true;
+    		if( ( x == (*this).getX()+1 && y == (*this).getY()+1)|| (x == (*this).getX()-1 && y == (*this).getY()+1)) valido = true;
+    		if( ( x == (*this).getX()-1 && y == (*this).getY()-1)|| (x == (*this).getX()+1 && y == (*this).getY()-1)) valido = true;
+    		return valido;
 		}
 
 		~Rey(){

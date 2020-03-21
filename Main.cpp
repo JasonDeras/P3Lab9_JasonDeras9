@@ -86,38 +86,92 @@ int main(){
 
 				string cordenada;
 				string cordenada2;
-				string juego;
+				string jugar;
+				int cont=0;
 				int resp=1;
-				while(true){
-					
-					cout<<"Ingrese la cordenada del rey: ";
-					cin>>cordenada;
+				
+				cout<<"Ingrese la cordenada del rey en el formato[e1,e2]: ";
+				cin>>cordenada;
 
-					for (int i = 0; i < cordenada.size(); i++){
-						if(numero[i]!='1' && numero[i] !='2' 
-							&& numero[i]!='3' && numero[i]!='4' 
-							&& numero[i] !='5'&& numero[i]!='6' 
-							&& numero[i]!='7' && numero[i] !='8' 
-							&& numero[i]!='a' && numero[i] !='b' 
-							&& numero[i]!='c' && numero[i]!='d' 
-							&& numero[i] !='e' && numero[i]!='h'){
+				for (int i = 0; i < cordenada.size(); i++){
+					if(cordenada[i]!='1' && cordenada[i] !='2' 
+						&& cordenada[i]!='3' && cordenada[i]!='4' 
+						&& cordenada[i] !='5'&& cordenada[i]!='6' 
+						&& cordenada[i]!='7' && cordenada[i] !='8' 
+						&& cordenada[i]!='a' && cordenada[i] !='b' 
+						&& cordenada[i]!='c' && cordenada[i]!='d' 
+						&& cordenada[i] !='e' && cordenada[i]!='h'){
 						resp=2;
 					}//Fin del if
+				}//fin del for 
+
+				if(resp==1){
+					moves.push_back(cordenada);
+				}else{
+					cout<<"La cordenada no es valida"<<endl<<endl;
+				}
+
+				resp=1;
+
+				cout<<"Ingrese la cordenada de la otra pieza en el formato[e1,e2]: ";
+				cin>>cordenada2;
+				for (int i = 0; i < cordenada2.size(); i++){
+					if(cordenada2[i]!='1' && cordenada2[i] !='2' 
+						&& cordenada2[i]!='3' && cordenada2[i]!='4' 
+						&& cordenada2[i] !='5'&& cordenada2[i]!='6' 
+						&& cordenada2[i]!='7' && cordenada2[i] !='8' 
+						&& cordenada2[i]!='a' && cordenada2[i] !='b' 
+						&& cordenada2[i]!='c' && cordenada2[i]!='d' 
+						&& cordenada2[i] !='e' && cordenada2[i]!='h'){
+						resp=2;
+					}//Fin del if
+				}//fin del for 
+
+				if(resp==1){
+					moves.push_back(cordenada2);
+				}else {
+					cout<<"Las cordenadas no son validas"<<endl<<endl;
+				}
+				while(true){
+					
+					resp=1;
+					cout<<"Ingrese las cordenadas a jugar en el formato[e1,e2]: ";
+					cin>>jugar;
+					for (int i = 0; i < jugar.size(); i++){
+						if(jugar[i]!='1' && jugar[i] !='2' 
+							&& jugar[i]!='3' && jugar[i]!='4' 
+							&& jugar[i] !='5'&& jugar[i]!='6' 
+							&& jugar[i]!='7' && jugar[i] !='8' 
+							&& jugar[i]!='a' && jugar[i] !='b' 
+							&& jugar[i]!='c' && jugar[i]!='d' 
+							&& jugar[i] !='e' && jugar[i]!='h'){
+							resp=2;
+						}//Fin del if
+					}//fin del for 
 
 					if(resp==1){
-						moves.push_back(cordenada);
-					}else{
-						cout<<"La cordenada no es valida"<<endl<<endl;
+						moves.push_back(jugar);
+					}else {
+						cout<<"Las cordenadas no son validas"<<endl<<endl;
 					}
+					cont++;
+					int sigue;
+					if(cont%2==0){
+						cout<<"Desea Seguir jugando[1.-Si,2.-No]: ";
+						cin>>sigue;
+						
+						if(sigue==1){
 
-					cout<<"Ingrese la cordenada de la otra pieza: ";
-					cin>>cordenada2;
+						}else if(sigue==2){
+							par->setMovimientos(moves);
+							par->setNombre(nombre);
+							par->GuardarPartida();
+							break;
+						}//fin del if de seguir jugando
 
-					par->setMovimiento(cordenada);
-					par->setNombre(nombre);
+					}//fin del if del segundo jugador
 
 				}//fin del while de las jugadas
-				par->GuardarPartida();
 			break;}
 
 			case 2:{
